@@ -24,11 +24,11 @@ class User:
     def __get_fields(self):
         return self.__schema["properties"].keys()
 
-    def search(self, term):
+    def search(self, query):
         """
         :return: results that match the query exactly
         """
-        return self.__searcher.search(term)
+        return self.__searcher.search(query)
 
     def print_fields(self):
         """
