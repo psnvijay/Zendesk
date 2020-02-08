@@ -1,4 +1,4 @@
-from bcolors import bcolors
+from bcolors import Colors
 from user import User
 from organization import Organization
 from ticket import Ticket
@@ -6,7 +6,6 @@ from whoosh.query import Term
 
 
 class SearchZendesk:
-
     def __init__(self):
         self.main_choices = {
             1: "Select 1 to search Zendesk",
@@ -26,7 +25,7 @@ class SearchZendesk:
         self.organization = Organization()
 
     def print_main_menu(self):
-        print(2 * "*", f"{bcolors.BOLD}Select options: {bcolors.ENDC}", 2 * "*", "\n")
+        print(2 * "*", f"{Colors.BOLD}Select options: {Colors.ENDC}", 2 * "*", "\n")
         for (k, v) in self.main_choices.items():
             print(str(k) + ". " + v)
         print("\n")
@@ -34,7 +33,7 @@ class SearchZendesk:
 
     def print_sub_menu(self):
         print("\n")
-        print(2 * "*", f"{bcolors.BOLD}Select from the following menu: {bcolors.ENDC}", 2 * "*", "\n")
+        print(2 * "*", f"{Colors.BOLD}Select from the following menu: {Colors.ENDC}", 2 * "*", "\n")
         for (k, v) in self.sub_choices.items():
             print(str(k) + ". " + v)
         print("\n")
@@ -48,7 +47,7 @@ class SearchZendesk:
 
     def get_menu_response(self):
         print("\n")
-        print(23 * "*", f"{bcolors.BOLD}Welcome to Zendesk Search{bcolors.ENDC}", 23 * "*")
+        print(23 * "*", f"{Colors.BOLD}{Colors.BLUE}Welcome to Zendesk Search{Colors.ENDC}", 23 * "*")
         print("\n")
 
         main_loop = True
