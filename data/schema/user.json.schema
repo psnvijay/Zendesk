@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "shared": {
+      "type": "boolean"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "last_login_at": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "organization_id": {
+      "type": "integer"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suspended": {
+      "type": "boolean"
+    },
+    "role": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "_id",
+    "active",
+    "created_at",
+    "external_id",
+    "last_login_at",
+    "name",
+    "phone",
+    "role",
+    "shared",
+    "signature",
+    "suspended",
+    "tags",
+    "url"
+  ]
+}

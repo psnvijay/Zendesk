@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "domain_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "shared_tickets": {
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "_id",
+    "created_at",
+    "details",
+    "domain_names",
+    "external_id",
+    "name",
+    "shared_tickets",
+    "tags",
+    "url"
+  ]
+}
