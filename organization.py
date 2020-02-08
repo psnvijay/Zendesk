@@ -6,7 +6,9 @@ from searcher import Searcher
 
 
 class Organization:
-
+    """
+    A class for organizations
+    """
     def __init__(self):
         self.__schema = self.__get_schema()
         self.fields = self.__get_fields()
@@ -22,12 +24,17 @@ class Organization:
     def __get_fields(self):
         return self.__schema["properties"].keys()
 
-    def search(self, term):
-        return self.__searcher.search(term)
+    def search(self, query):
+        """
+        :return: results that match the query exactly
+        """
+        return self.__searcher.search(query)
 
     def print_fields(self):
+        """
+        :return: prints list of searchable fields
+        """
         print(66 * "-")
         print("Organization fields:")
         print("\n".join(self.fields), "\n")
         print(66 * "-")
-

@@ -134,3 +134,6 @@ data/index/
 
 # local files
 scratch*
+
+# local dirs
+.idea/

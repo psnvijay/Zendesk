@@ -1,10 +1,14 @@
 import os
 import json
+
 from indexer import UserIndexer
 from searcher import Searcher
 
 
 class User:
+    """
+    A class for users
+    """
     def __init__(self):
         self.__schema = self.__get_schema()
         self.fields = self.__get_fields()
@@ -21,9 +25,15 @@ class User:
         return self.__schema["properties"].keys()
 
     def search(self, term):
+        """
+        :return: results that match the query exactly
+        """
         return self.__searcher.search(term)
 
     def print_fields(self):
+        """
+        :return: prints list of searchable fields
+        """
         print(66 * "-")
         print("User fields:")
         print("\n".join(self.fields), "\n")

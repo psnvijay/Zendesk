@@ -6,7 +6,9 @@ from searcher import Searcher
 
 
 class Ticket:
-
+    """
+    A class for tickets
+    """
     def __init__(self):
         self.__schema = self.__get_schema()
         self.fields = self.__get_fields()
@@ -23,9 +25,15 @@ class Ticket:
         return self.__schema["properties"].keys()
 
     def search(self, term):
+        """
+        :return: results that match the query exactly
+        """
         return self.__searcher.search(term)
 
     def print_fields(self):
+        """
+        :return: prints list of searchable fields
+        """
         print(66 * "-")
         print("Ticket fields:")
         print("\n".join(self.fields), "\n")
