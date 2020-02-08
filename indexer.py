@@ -32,7 +32,7 @@ class UserIndexer(Indexer):
         self.index_dir = self.base_dir + "user/"
         self.index_schema = self.__get_index_schema()
         if not os.path.exists(self.index_dir):
-            os.mkdir(self.index_dir)
+            os.makedirs(self.index_dir)
             self.indexer = index.create_in(self.index_dir, self.index_schema)  # creates the index
         else:
             self.indexer = index.open_dir(self.index_dir)  # opens the index if it already exists
@@ -87,7 +87,7 @@ class TicketIndexer(Indexer):
         self.index_dir = self.base_dir + "ticket/"
         self.index_schema = self.__get_index_schema()
         if not os.path.exists(self.index_dir):
-            os.mkdir(self.index_dir)
+            os.makedirs(self.index_dir)
             self.indexer = index.create_in(self.index_dir, self.index_schema)
         else:
             self.indexer = index.open_dir(self.index_dir)
@@ -136,7 +136,7 @@ class OrganizationIndexer(Indexer):
         self.index_dir = self.base_dir + "organization/"
         self.index_schema = self.__get_index_schema()
         if not os.path.exists(self.index_dir):
-            os.mkdir(self.index_dir)
+            os.makedirs(self.index_dir)
             self.indexer = index.create_in(self.index_dir, self.index_schema)
         else:
             self.indexer = index.open_dir(self.index_dir)

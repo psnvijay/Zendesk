@@ -143,6 +143,7 @@ class SearchZendesk:
         :param fields: list of searchable fields
         :return: Term query
         """
+        print("Choose from the following fields:\n" + "\n".join(fields) + "\n")
         field = input("Enter search term:")
         while field not in fields:
             print("Search term not found. Choose a search term from the following fields:\n" + "\n".join(fields) + "\n")

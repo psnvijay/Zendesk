@@ -1,7 +1,7 @@
 # Zendesk
 A command line interface (CLI) application to search users, tickets and organizations. This application has been built using Python version 3. 
 
-###### Setup instructions:
+### Setup instructions:
 1. Clone the repository:
 ```bash
 git clone git@github.com:psnvijay/Zendesk.git
