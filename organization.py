@@ -28,6 +28,7 @@ class Organization:
         """
         :return: results that match the query exactly
         """
+        print("Searching organizations for", query)
         return self.__searcher.search(query)
 
     def print_fields(self):

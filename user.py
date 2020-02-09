@@ -28,6 +28,7 @@ class User:
         """
         :return: results that match the query exactly
         """
+        print("Searching users for", query)
         return self.__searcher.search(query)
 
     def print_fields(self):

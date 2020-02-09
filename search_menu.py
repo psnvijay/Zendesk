@@ -2,7 +2,7 @@ from bcolors import Colors
 from user import User
 from organization import Organization
 from ticket import Ticket
-from whoosh.query import Term
+from whoosh.query import Term, And
 
 
 class SearchZendesk:
@@ -57,9 +57,12 @@ class SearchZendesk:
         prints search results
         :param results: list of search results
         """
-        for res in results:
-            print("\n".join([(key + (30 - len(key)) * " " + str(value)) for (key, value) in res.items()]))
-            print(80 * "-")
+        if len(results) == 0:
+            print("No results found.")
+        else:
+            for res in results:
+                print("\n".join([(key + (30 - len(key)) * " " + str(value)) for (key, value) in res.items()]))
+                print(80 * "-")
 
     def get_menu_response(self):
         """
@@ -71,13 +74,13 @@ class SearchZendesk:
         print("\n")
 
         main_loop = True
-        sub_loop = True
 
         while main_loop:  # outer loop to receive main menu options
             self.print_main_menu()  # print main menu
             try:
                 choice = int(input("Enter your choice [" + str(min(self.main_choices.keys())) + "-" + str(max(self.main_choices.keys())) + "]: "))
                 if choice == 1:
+                    sub_loop = True
                     while sub_loop:
                         self.print_sub_menu()  # print sub menu
                         try:
@@ -143,13 +146,31 @@ class SearchZendesk:
         :param fields: list of searchable fields
         :return: Term query
         """
+        multi_fields_flag = True
+        terms = []
+
         print("Choose from the following fields:\n" + "\n".join(fields) + "\n")
         field = input("Enter search term:")
         while field not in fields:
             print("Search term not found. Choose a search term from the following fields:\n" + "\n".join(fields) + "\n")
             field = input("Enter search term:")
         value = input("Enter search value:")
-        return Term(field, value)
+        terms.append(Term(field, value))
+
+        while multi_fields_flag:
+            print("Choose from the following fields:\n" + "\n".join(fields) + "\n")
+            field = input("Enter search term or press enter to search:")
+            if field == "":
+                return And(terms)
+            else:
+                while field not in fields:
+                    print("Search term not found. Choose a search term from the following fields:\n" + "\n".join(fields) + "\n")
+                    field = input("Enter search term:")
+                    if field == "":
+                        return And(terms)
+                value = input("Enter search value:")
+                terms.append(Term(field, value))
+        return And(terms)
 
 
 if __name__ == "__main__":

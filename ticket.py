@@ -28,6 +28,7 @@ class Ticket:
         """
         :return: results that match the query exactly
         """
+        print("Searching tickets for", query)
         return self.__searcher.search(query)
 
     def print_fields(self):
