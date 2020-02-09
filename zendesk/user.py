@@ -1,8 +1,8 @@
 import os
 import json
 
-from indexer import UserIndexer
-from searcher import Searcher
+from zendesk.indexer import UserIndexer
+from zendesk.searcher import Searcher
 
 
 class User:

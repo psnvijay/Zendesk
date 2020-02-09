@@ -1,7 +1,7 @@
 import unittest
 
 from whoosh.query import Term
-from ticket import Ticket
+from zendesk.ticket import Ticket
 
 
 class TestClassTicket(unittest.TestCase):

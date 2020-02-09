@@ -1,7 +1,7 @@
 import unittest
 
 from whoosh.query import Term
-from user import User
+from zendesk.user import User
 
 
 class TestClassUser(unittest.TestCase):

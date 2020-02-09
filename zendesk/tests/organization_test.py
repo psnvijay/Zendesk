@@ -1,7 +1,7 @@
 import unittest
 
 from whoosh.query import Term
-from organization import Organization
+from zendesk.organization import Organization
 
 
 class TestClassUser(unittest.TestCase):
