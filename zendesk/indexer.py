@@ -1,7 +1,7 @@
 import os
 
 from abc import ABC, abstractmethod
-from whoosh.fields import Schema, ID, BOOLEAN, NUMERIC
+from whoosh.fields import Schema, ID, BOOLEAN, NUMERIC, KEYWORD
 from whoosh import index
 
 
@@ -13,7 +13,8 @@ class Indexer(ABC):
         """
         Constructor for the Indexer class
         """
-        self.base_dir = os.getcwd() + "/data/index/"  # base directory location for all indexes
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        self.base_dir = root_dir + "/data/index/"  # base directory location for all indexes
 
     @abstractmethod
     def index(self, data):
@@ -57,7 +58,7 @@ class UserIndexer(Indexer):
                       phone=ID(stored=True),
                       signature=ID(stored=True),
                       organization_id=NUMERIC(stored=True),
-                      tags=ID(stored=True),
+                      tags=KEYWORD(stored=True, commas=True),
                       suspended=BOOLEAN(stored=True),
                       role=ID(stored=True))
 
@@ -100,7 +101,7 @@ class TicketIndexer(Indexer):
                       assignee_id=NUMERIC(stored=True),
                       via=ID(stored=True),
                       description=ID(stored=True),
-                      tags=ID(stored=True),
+                      tags=KEYWORD(stored=True, commas=True),
                       url=ID(stored=True),
                       external_id=ID(stored=True),
                       created_at=ID(stored=True),
@@ -150,11 +151,11 @@ class OrganizationIndexer(Indexer):
             url=ID(stored=True),
             external_id=ID(stored=True),
             name=ID(stored=True),
-            domain_names=ID(stored=True),
+            domain_names=KEYWORD(stored=True, commas=True),
             created_at=ID(stored=True),
             details=ID(stored=True),
             shared_tickets=BOOLEAN(stored=True),
-            tags=ID(stored=True))
+            tags=KEYWORD(stored=True, commas=True))
 
     def index(self, data):
         """
@@ -167,4 +168,5 @@ class OrganizationIndexer(Indexer):
         writer.commit()
 
     def searcher(self):
+        print(self.index_dir)
         return self.indexer.searcher()

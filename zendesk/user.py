@@ -17,7 +17,8 @@ class User:
 
     @staticmethod
     def __get_schema():
-        users_schema_json = os.getcwd() + "/data/schema/user.json.schema"
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        users_schema_json = root_dir + "/data/schema/user.json.schema"
         with open(users_schema_json) as f:
             return json.load(f)
 

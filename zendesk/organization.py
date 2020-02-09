@@ -1,8 +1,8 @@
 import os
 import json
 
-from indexer import OrganizationIndexer
-from searcher import Searcher
+from zendesk.indexer import OrganizationIndexer
+from zendesk.searcher import Searcher
 
 
 class Organization:
@@ -17,8 +17,9 @@ class Organization:
 
     @staticmethod
     def __get_schema():
-        users_schema_json = os.getcwd() + "/data/schema/organization.json.schema"
-        with open(users_schema_json) as f:
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        org_schema_json = root_dir + "/data/schema/organization.json.schema"
+        with open(org_schema_json) as f:
             return json.load(f)
 
     def __get_fields(self):

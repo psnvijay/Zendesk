@@ -1,8 +1,8 @@
 import os
 import json
 
-from indexer import TicketIndexer
-from searcher import Searcher
+from zendesk.indexer import TicketIndexer
+from zendesk.searcher import Searcher
 
 
 class Ticket:
@@ -17,8 +17,9 @@ class Ticket:
 
     @staticmethod
     def __get_schema():
-        users_schema_json = os.getcwd() + "/data/schema/ticket.json.schema"
-        with open(users_schema_json) as f:
+        root_dir = os.path.dirname(os.path.abspath(__file__))
+        tickets_schema_json = root_dir + "/data/schema/ticket.json.schema"
+        with open(tickets_schema_json) as f:
             return json.load(f)
 
     def __get_fields(self):

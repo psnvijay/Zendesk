@@ -130,7 +130,7 @@ dmypy.json
 .pyre/
 
 # local data files
-data/index/
+zendesk/data/index/
 
 # local files
 scratch*
