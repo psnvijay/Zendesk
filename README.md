@@ -10,20 +10,15 @@ git clone git@github.com:psnvijay/Zendesk.git
 2. Make sure `Python 3.7` is being used to run the application. 
     - `brew` can be used to install it if necessary: ```brew cask install anaconda```
     
-
-3. Install the dependencies:
+3. Install the module:
 ```bash
-pip install -r requirements.txt 
+cd Zendesk
+python setup.py install
 ```
 
-4. Run the setup script:
+4. Run the application:
 ```bash
-python setup.py
-```
-
-5. Run the application:
-```bash
-python search_menu.py
+python zendesk/search_menu.py
 ```
 
 ### Usage:
