@@ -40,6 +40,7 @@ def setup():
     index_user_data()
     index_ticket_data()
     index_organization_data()
+    
 
 
 if __name__ == "__main__":
